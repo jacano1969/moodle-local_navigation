@@ -30,7 +30,7 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configcheckbox('cm_activate', get_string('activate', 'local_navigation'),
         get_string('stractivate', 'local_navigation'), 0));
     $temp->add(new admin_setting_configtext('cm_pathplugins', get_string('pathplugins', 'local_navigation'),
-        get_string('strpathplugins', 'local_navigation'), '/local/od'));
+        get_string('strpathplugins', 'local_navigation'), '/local/od/'));
     $temp->add(new admin_setting_configtext('cm_title', get_string('title', 'local_navigation'),
         get_string('strtitle', 'local_navigation'), 'Custom Navigation'));
     $temp->add(new admin_setting_configtext('cm_textlink', get_string('textlink', 'local_navigation'),

@@ -18,7 +18,7 @@
  * Add new optios in Navigation Menu
  *
  * @package    local_navigation
- * @author        cescobedo@cvaconsulting.com
+ * @author     cescobedo@cvaconsulting.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -103,4 +103,3 @@ function navigation_custom_menu_item(custom_menu_item $menunode, $parent, $pmast
 
     return true;
 }
-
