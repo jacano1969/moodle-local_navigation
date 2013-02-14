@@ -50,12 +50,12 @@ function local_navigation_extends_navigation(global_navigation $navigation) {
             }
             closedir($handle);
         }
-    }
-    if ($CFG->cm_items) {
-        $menu = new custom_menu($CFG->cm_items, current_language());
-        if ($menu->has_children()) {
-            foreach ($menu->get_children() as $item) {
-                navigation_custom_menu_item($item,0,null);
+        if ($CFG->cm_items) {
+            $menu = new custom_menu($CFG->cm_items, current_language());
+            if ($menu->has_children()) {
+                foreach ($menu->get_children() as $item) {
+                    navigation_custom_menu_item($item,0,null);
+                }
             }
         }
     }
