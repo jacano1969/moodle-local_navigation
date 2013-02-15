@@ -77,7 +77,7 @@ function navigation_custom_menu_item(custom_menu_item $menunode, $parent, $pmast
 
     if ($menunode->has_children()) {
         $submenucount++;
-        $url = '';
+        $url = $CFG->wwwroot;
         if ($menunode->get_url() !== null) {
             $url = $menunode->get_url();
         }
@@ -90,7 +90,7 @@ function navigation_custom_menu_item(custom_menu_item $menunode, $parent, $pmast
             navigation_custom_menu_item($menunode, $submenucount, $masternode);
         }
     } else {
-        $url = '';
+        $url = $CFG->wwwroot;
         if ($menunode->get_url() !== null) {
             $url = $menunode->get_url();
         }
