@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Add new optios in Navigation Menu
+ * Add new optios in Custom Navigation
  *
  * @package    local_navigation
  * @author     cescobedo@cvaconsulting.com
@@ -31,10 +31,10 @@
 function local_navigation_extends_navigation(global_navigation $navigation) {
     global $PAGE, $CFG;
 
-    if ($CFG->cm_activate) {
-        $masternode = $PAGE->navigation->add($CFG->cm_title, new moodle_url(''), navigation_node::TYPE_CONTAINER);
-        $folder =  $CFG->dirroot.$CFG->cm_pathplugins;
-        $excludefolders = explode(',', $CFG->cm_exclude);
+    if ($CFG->cn_activate) {
+        $masternode = $PAGE->navigation->add($CFG->cn_title, new moodle_url(''), navigation_node::TYPE_CONTAINER);
+        $folder =  $CFG->dirroot.$CFG->cn_pathplugins;
+        $excludefolders = explode(',', $CFG->cn_exclude);
         if ($handle = opendir($folder)) {
             while (($file = readdir($handle)) !== false) {
                 $fullpath = $folder . '/' . $file;
@@ -43,15 +43,15 @@ function local_navigation_extends_navigation(global_navigation $navigation) {
                 } else if (is_file($fullpath)) {
                     continue;
                 } else if (is_dir($fullpath) && !in_array($file, $excludefolders)) {
-                    $childnode = $masternode->add(get_string($file.'_'.$CFG->cm_textlink, $CFG->cm_filelang),
-                        new moodle_url($CFG->cm_pathplugins.$file.'/index.php'));
+                    $childnode = $masternode->add(get_string($file.'_'.$CFG->cn_textlink, $CFG->cn_filelang),
+                        new moodle_url($CFG->cn_pathplugins.$file.'/index.php'));
                     $childnode->make_active();
                 }
             }
             closedir($handle);
         }
-        if ($CFG->cm_items) {
-            $menu = new custom_menu($CFG->cm_items, current_language());
+        if ($CFG->cn_items) {
+            $menu = new custom_menu($CFG->cn_items, current_language());
             if ($menu->has_children()) {
                 foreach ($menu->get_children() as $item) {
                     navigation_custom_menu_item($item,0,null);

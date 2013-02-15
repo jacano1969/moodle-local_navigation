@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Add new optios in Navigation Menu
+ * Add new optios in Custom Navigation
  *
  * @package    local_navigation
  * @author		cescobedo@cvaconsulting.com
@@ -27,19 +27,19 @@ defined('MOODLE_INTERNAL') || die;
 if ($hassiteconfig) {
     // Add general config.
     $temp = new admin_settingpage('configcm', get_string('pluginname', 'local_navigation'));
-    $temp->add(new admin_setting_configcheckbox('cm_activate', get_string('activate', 'local_navigation'),
+    $temp->add(new admin_setting_configcheckbox('cn_activate', get_string('activate', 'local_navigation'),
         get_string('stractivate', 'local_navigation'), 0));
-    $temp->add(new admin_setting_configtext('cm_pathplugins', get_string('pathplugins', 'local_navigation'),
+    $temp->add(new admin_setting_configtext('cn_pathplugins', get_string('pathplugins', 'local_navigation'),
         get_string('strpathplugins', 'local_navigation'), '/local/od/'));
-    $temp->add(new admin_setting_configtext('cm_title', get_string('title', 'local_navigation'),
+    $temp->add(new admin_setting_configtext('cn_title', get_string('title', 'local_navigation'),
         get_string('strtitle', 'local_navigation'), 'Custom Navigation'));
-    $temp->add(new admin_setting_configtext('cm_textlink', get_string('textlink', 'local_navigation'),
+    $temp->add(new admin_setting_configtext('cn_textlink', get_string('textlink', 'local_navigation'),
         get_string('strtextlink', 'local_navigation'), 'pluginname'));
-    $temp->add(new admin_setting_configtext('cm_filelang', get_string('filelang', 'local_navigation'),
+    $temp->add(new admin_setting_configtext('cn_filelang', get_string('filelang', 'local_navigation'),
         get_string('strfilelang', 'local_navigation'), 'local_od'));
-    $temp->add(new admin_setting_configtext('cm_exclude', get_string('exclude', 'local_navigation'),
+    $temp->add(new admin_setting_configtext('cn_exclude', get_string('exclude', 'local_navigation'),
         get_string('strexclude', 'local_navigation'), '.git,db,lang,lib'));
-    $temp->add(new admin_setting_configtextarea('cm_items', new lang_string('items', 'local_navigation'),
+    $temp->add(new admin_setting_configtextarea('cn_items', new lang_string('items', 'local_navigation'),
         new lang_string('stritems', 'local_navigation'), '', PARAM_TEXT, '50', '10'));
 
     $ADMIN->add('localplugins', $temp);
