@@ -32,7 +32,7 @@ function local_navigation_extends_navigation(global_navigation $navigation) {
     global $PAGE, $CFG;
 
     if ($CFG->cn_activate) {
-        $masternode = $PAGE->navigation->add($CFG->cn_title, new moodle_url(''), navigation_node::TYPE_CONTAINER);
+        $masternode = $PAGE->navigation->add($CFG->cn_title, null, navigation_node::TYPE_CONTAINER);
         $folder =  $CFG->dirroot.$CFG->cn_pathplugins;
         $excludefolders = explode(',', $CFG->cn_exclude);
         if ($handle = opendir($folder)) {
@@ -71,7 +71,7 @@ function local_navigation_extends_navigation(global_navigation $navigation) {
  * @return void
  */
 function navigation_custom_menu_item(custom_menu_item $menunode, $parent, $pmasternode) {
-    global $PAGE;
+    global $PAGE, $CFG;
 
     static $submenucount = 0;
 
